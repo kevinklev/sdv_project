@@ -66,6 +66,9 @@ st.write("""
     ##### Totals only reflect counts for Ford and Chevrolet vehicles
     """)
 
+ford_chev_list = ['chevrolet', 'ford']
+ford_chev = cars_df[cars_df.manufacturer.isin(ford_chev_list)]
+
 
 choice = ford_chev['manufacturer'].unique()
 choice_for_man = st.selectbox('Select manufacturer:', choice)
