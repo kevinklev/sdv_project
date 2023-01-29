@@ -69,8 +69,19 @@ st.write("""
 ford_chev_list = ['chevrolet', 'ford']
 ford_chev = cars_df[cars_df.manufacturer.isin(ford_chev_list)]
 
-list_manu = ['fuel', 'condition', 'type', 'vehicle_age']
-choice_for_manu = st.selectbox('Based on:', list_manu)
+choice = ford_chev['manufacturer'].unique()
+choice_for_man = st.selectbox('Select manufacturer:', choice)
 
-fc_graph = px.bar(ford_chev, x = choice_for_manu, color = 'manufacturer')
+filtered_data = cars_df[cars_df.manufacturer == choice_for_man]
+
+list_type = ['fuel', 'condition', 'type']
+choice_for_type = st.selectbox('Based on:', list_type)
+
+
+fc_graph = px.bar(filtered_data, x = 'vehicle_age', color = choice_for_type, title = f'Bar Chart of Data for {choice_for_man.title()} vehicles:')
 st.write(fc_graph)
+
+
+## hey there! I think I applied all the changes and all of the filters seem to be working when I run it on mine.
+## If something continues not to work, can you be a bit more specific in feedback
+## as to what specifically needs to be fixed. Thank you! 
